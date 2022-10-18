@@ -1,0 +1,139 @@
+import java.util.Locale;
+import java.util.Scanner;
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+
+        //Zadanie1();
+        //Zadanie2();
+        // Zadanie3();
+        // System.out.println(Zadanie5("kajak"));
+        // System.out.println(Zadanie5("ala"));
+        //System.out.println(Zadanie5("wiewiórka"));
+
+    }
+
+    public static double Input() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Wprowadz wartość N: ");
+        double n = input.nextDouble();
+        return n;
+    }
+
+    public static void wprowadzTrzyLiczby() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Wprowadź liczbę a: ");
+        double a = input.nextDouble();
+        System.out.println("Wprowadź liczbę b: ");
+        double b = input.nextDouble();
+        System.out.println("Wprowadź liczbę c: ");
+        double c = input.nextDouble();
+    }
+
+    public static void Zadanie1() {
+        double ilStud = Input();
+        double pkt;
+        int a = 0, b = 40, ile = 0, suma = 0;
+        if (ilStud > 0) {
+            while (ilStud > 0) {
+                System.out.println("Podaj liczbe punktów (0-40): ");
+                pkt = Input();
+                if (pkt >= a && pkt <= b) {
+                    suma += pkt;
+                    ile++;
+                    ilStud--;
+                }
+            }
+            System.out.println("Ile: " + ile);
+            System.out.println("Suma punktow wynosi: " + suma);
+            System.out.println("Srednia to: " + suma / ile);
+
+        } else System.out.println("Podaną złą liczbę studentów! :");
+    }
+
+    public static void Zadanie2() {
+        double suma = 0, sumaDodatnia = 0, sumaUjemna = 0, liczba = 0;
+        int liczbyDodatnie = 0, liczbyUjemne = 0;
+
+        for (int i = 1; i < 10; i++) {
+
+            liczba = Input();
+            if (liczba >= 0) {
+                sumaDodatnia += liczba;
+                liczbyDodatnie++;
+            } else {
+                sumaUjemna += liczba;
+                liczbyUjemne++;
+            }
+        }
+        System.out.println("Suma liczb dodatnich wynosi: " + sumaDodatnia);
+        System.out.println("było ich: " + liczbyDodatnie);
+        System.out.println("Suma liczb ujemnych wynosi: " + sumaUjemna);
+        System.out.println("było ich: " + liczbyUjemne);
+
+    }
+
+    public static void Zadanie3() {
+        double n = Input();
+        int liczba, suma = 0;
+        Random losowa = new Random();
+
+        if (n > 0) {
+            while (n > 0) {
+                //liczba = Input();
+                liczba = losowa.nextInt(56) - 10;
+                if (liczba % 2 == 0) suma += liczba;
+                n--;
+            }
+            System.out.println("Suma liczba parzystych: " + (int) suma);
+        } else System.out.println("Ciąg musi mieć przynajmniej jedną liczbę!");
+    }
+
+
+    public static boolean Zadanie5(String text) {
+
+        String zdanie = text;
+        zdanie.toLowerCase(Locale.ROOT);
+
+        for (int i = text.length() - 1; i < 0; i--) {
+            for (int j = 0; j < text.length() - 1; j++) {
+
+                if (text.charAt(i) == zdanie.charAt(j)) {
+                    continue;
+                } else return false;
+
+            }
+
+        }
+        return true;
+    }
+
+    public static void czyPalindrom(String text) {
+        int end = text.length() - 1;
+        text.toLowerCase(Locale.ROOT);
+        for (int i = 0; i < text.length() / 2; i++) {
+            //if ()
+
+
+        }
+    }
+
+    public static double rownanieKwadratowe(int a, int b, int c) {
+        wprowadzTrzyLiczby();
+        double delta = 0;
+        delta = (b * b) - (4 * a) *c;
+        if(delta<0){
+            System.out.println("Delta jest ujemna, brak rowiązań!");
+
+        }else if (delta==0){
+            double miejsceZerowe=0;
+            miejsceZerowe=-b/(2*a);
+            System.out.println("Delta jest równa zero, jedno miejsce zerowe to: "+miejsceZerowe);
+        }
+    }
+
+
+}
+
+
